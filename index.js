@@ -19,6 +19,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/', productRouter);
+app.use((req, res) => {
+    res.status(404).send('<h1>Trang nay chung toi chiu</h1>');
+});
 
 const PORT = process.env.PORT || 5000;
 
