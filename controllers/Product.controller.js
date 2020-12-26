@@ -26,7 +26,7 @@ exports.create = async(req, res) => {
 
     await dbo.collection("Products").insertOne(newProduct);
 
-    res.redirect('management');
+    res.redirect('/');
 }
 
 exports.getEdit = async(req, res) => {
@@ -69,7 +69,7 @@ exports.edit = async(req, res) => {
 
     await dbo.collection("Products").updateOne(idEdit, editProduct);
 
-    res.redirect('management');
+    res.redirect('/');
 }
 
 exports.delete = async(req, res) => {
@@ -84,7 +84,7 @@ exports.delete = async(req, res) => {
 
     await dbo.collection("Products").deleteOne(idDelete);
 
-    res.redirect('management');
+    res.redirect('/');
 }
 
 exports.getAll = async(req, res) => {

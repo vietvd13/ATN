@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/products', productRouter);
+app.use('/', productRouter);
 
 const PORT = process.env.PORT || 5000;
 
