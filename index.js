@@ -9,7 +9,7 @@ const app = express();
 
 app.set('view engine', 'hbs');
 app.set('views', './views');
-hbs.registerPartials(__dirname + '/views/components');
+hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('add', function (index) {
     index++;
     return index;
