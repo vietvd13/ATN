@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="app">
+
+        <div class="top">
+            {{> navbar}}
+        </div>
+
+        <div class="main">
+            <div class="container">
+
+                <div class="row">
+                    
+                    <div class="col">
+                        <div class="create">
+                            <a type="button" class="btn btn-success" href="do-create"><i class="fas fa-plus-circle"></i>Create new</a>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="search">
+                            <form class="d-flex" action="search" method="post">
+                                <input class="form-control me-2" name="product_name" type="search" placeholder="Input product name...." aria-label="Search">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{#if count}}
+                    <div class="count">
+                        <h2>Number of search results: {{ count }}</h2>
+                    </div>
+                {{/if}}
+
+                <div class="table-product">
+                    <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Color</th>
+                                <th>Desciption</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody> 
+                            {{#each data}}
+                                <tr>
+                                    <td>{{ add @index }}</td>
+                                    <td>{{ product_name }}</td>
+                                    <td>{{ product_price }}</td>
+                                    <td>{{ product_color }}</td>
+                                    <td>{{ product_des }}</td>
+                                    <td class="colActions">
+                                        <a type="button" class="btn btn-warning" href="do-edit?id={{ _id }}"><i class="fas fa-edit"></i>Edit</a>
+                                        <a type="button" class="btn btn-danger" href="delete?id={{ _id }}"><i class="fas fa-trash-alt"></i>Delete</a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</html>

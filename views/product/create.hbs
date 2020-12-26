@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/create.css">
+</head>
+<body>
+    <div class="app">
+
+        <div class="top">
+            {{> navbar}}
+        </div>
+
+        <div class="main">
+            <div class="container">
+
+                <h3>Create Product</h3>
+
+                {{#if message}}
+                    <div class="message">
+                        {{#each message}}
+                            <div class="{{ class }}" role="alert">
+                                {{ text }}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/if}}
+
+                <form action="create" method="post">
+                    <div class="mb-3">
+                        <label for="product_name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="product_name" name="product_name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="product_price" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="product_price" name="product_price">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="product_color" class="form-label">Color</label>
+                        <input type="text" class="form-control" id="product_color" name="product_color">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="product_des" class="form-label">Description</label>
+                        <textarea class="form-control" id="product_des" rows="3" name="product_des"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

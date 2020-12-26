@@ -1,0 +1,80 @@
+.create {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.count {
+    margin-bottom: 20px;
+}
+
+.create a i {
+    margin-right: 5px;
+}
+
+.colActions a i {
+    color: white;
+    margin-right: 5px;
+}
+
+.colActions a {
+    color: #ffffff
+}
+
+.colActions a:hover {
+    color: #ffffff;
+}
+
+thead {
+    text-align: center;
+    background-color: tomato;
+    color: #ffffff;
+}
+
+tr {
+    width: 100%;
+    display: inline-table;
+    table-layout: fixed;
+}
+
+td {
+    width: 100%;
+    text-align: center;
+}
+    
+table{
+    height: 500px;
+    display: -moz-groupbox;
+    position: relative;
+}
+
+tbody{
+    overflow-y: scroll;     
+    height: 500px;
+    width: 100%;
+    position: absolute;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-button {
+    height: 5px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
