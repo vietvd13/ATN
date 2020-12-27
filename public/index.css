@@ -8,6 +8,10 @@
     margin-bottom: 20px;
 }
 
+.colActions {
+    min-width: 200px;
+}
+
 .count {
     margin-bottom: 20px;
 }
@@ -35,6 +39,7 @@ thead {
     color: #ffffff;
 }
 
+
 tr {
     width: 100%;
     display: inline-table;
@@ -43,28 +48,31 @@ tr {
 
 td {
     width: 100%;
+    vertical-align: middle;
     text-align: center;
 }
-    
-table{
-    height: 500px;
-    display: -moz-groupbox;
-    position: relative;
+
+td.colActions {
+    width: 200px;
 }
 
-tbody{
-    overflow-y: scroll;     
-    height: 500px;
-    width: 100%;
-    position: absolute;
+th.colActions {
+    width: 200px;
+}
+
+th.number {
+    width: 50px;
+    white-space: pre;
+    text-align: center;
+}
+
+td.number {
+    width: 50px;
+    white-space: pre;
 }
 
 ::-webkit-scrollbar {
     width: 10px;
-}
-
-::-webkit-scrollbar-button {
-    height: 5px;
 }
   
 ::-webkit-scrollbar-track {
@@ -78,3 +86,80 @@ tbody{
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+
+tbody {
+    display: block;
+    height: 600px;
+    overflow: auto;
+}
+
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+table {
+    width:400px;
+}
+
+table {
+    border-collapse: collapse;
+}
+  
+@media
+    only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 1024px)  {
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+    
+    tr:nth-child(odd) {
+        background: #ccc;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    td.colActions {
+        width: 100%;
+    }
+
+    th.colActions {
+        width: 100%;
+    }
+
+    td.number {
+        width: 100%;
+    }
+
+    th.number {
+        width: 100%;
+    }
+}
+
