@@ -14,6 +14,8 @@ exports.create = async(req, res) => {
     var color = req.body.product_color;
     var des = req.body.product_des;
 
+    price = parseFloat(price);
+
     var client = await MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
     var dbo = client.db(DB);
 

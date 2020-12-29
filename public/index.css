@@ -52,6 +52,18 @@ td {
     text-align: center;
 }
 
+th.price {
+    width: 200px;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+td.price {
+    width: 200px;
+    overflow: hidden;
+    word-break: break-all;
+}
+
 td.colActions {
     width: 200px;
 }
@@ -160,6 +172,18 @@ table {
 
     th.number {
         width: 100%;
+    }
+
+    th.price {
+        width: 100%;
+        overflow: hidden;
+        word-break: break-all;
+    }
+    
+    td.price {
+        width: 100%;
+        overflow: hidden;
+        word-break: break-all;
     }
 }
 
