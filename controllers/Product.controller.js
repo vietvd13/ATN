@@ -53,6 +53,8 @@ exports.edit = async(req, res) => {
     var color = req.body.product_color;
     var des = req.body.product_des;
 
+    price = parseFloat(price);
+
     var idEdit = {
         _id: ObjectId(query)
     };
