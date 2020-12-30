@@ -16,7 +16,7 @@ exports.create = async(req, res) => {
 
     price = parseFloat(price);
 
-    var client = await MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
+    var client = await MongoClient.connect(URI, { useUnifiedTopology: true });
     var dbo = client.db(DB);
 
     var newProduct = {
@@ -38,7 +38,7 @@ exports.getEdit = async(req, res) => {
         _id: ObjectId(query)
     };
 
-    var client = await MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
+    var client = await MongoClient.connect(URI, { useUnifiedTopology: true });
     var dbo = client.db(DB);
 
     var result = await dbo.collection("Products").findOne(idEdit, {});
@@ -68,7 +68,7 @@ exports.edit = async(req, res) => {
         }
     }
 
-    var client = await MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
+    var client = await MongoClient.connect(URI, { useUnifiedTopology: true });
     var dbo = client.db(DB);
 
     await dbo.collection("Products").updateOne(idEdit, editProduct);
@@ -83,7 +83,7 @@ exports.delete = async(req, res) => {
         _id: ObjectId(query)
     };
 
-    var client = await MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
+    var client = await MongoClient.connect(URI, { useUnifiedTopology: true });
     var dbo = client.db(DB);
 
     await dbo.collection("Products").deleteOne(idDelete);
@@ -92,7 +92,7 @@ exports.delete = async(req, res) => {
 }
 
 exports.getAll = async(req, res) => {
-    var client = await MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
+    var client = await MongoClient.connect(URI, { useUnifiedTopology: true });
     var dbo = client.db(DB);
 
     var result = await dbo.collection("Products").find({}).toArray();
@@ -103,12 +103,17 @@ exports.getAll = async(req, res) => {
 exports.search = async(req, res) => {
     var query = req.body.product_name;
 
-    var client = await MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
+    var client = await MongoClient.connect(URI, { useUnifiedTopology: true });
     var dbo = client.db(DB);
 
     var result = await dbo.collection("Products").find({product_name: new RegExp(query, 'i')}).toArray();
 
     var countResult = result.length;
 
-    res.render('product/index', {data: result, count: countResult});
+    if (countResult === 0 ) {
+        res.render('product/index', {message_search: `No products were found with the keyword is: ${query}`});
+    } else {
+        res.render('product/index', {data: result, count: countResult});
+    }
+
 }

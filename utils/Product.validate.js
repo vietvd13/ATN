@@ -92,7 +92,7 @@ module.exports.validateEdit = async function(req, res, next) {
             _id: ObjectId(query)
         };
     
-        var client = await MongoClient.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
+        var client = await MongoClient.connect(URI, { useUnifiedTopology: true });
         var dbo = client.db(DB);
     
         var result = await dbo.collection("Products").findOne(idEdit, {});
